@@ -1,6 +1,6 @@
 #1
 print("cat")
-
+print("dog")
 #2
 print(" Hello Enter your adress: ")
 
