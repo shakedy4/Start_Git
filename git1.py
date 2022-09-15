@@ -4,8 +4,8 @@ print(" Hello Enter your  name: ")
 #2
 print(" Hello Enter your adress: ")
 
-#3
-print("your name")
+print("shaked Kfar yona")
+
 
 
 """
