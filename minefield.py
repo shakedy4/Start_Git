@@ -12,22 +12,22 @@ def empty_screen():
 
 
 def put_flag():
-    for row in range(consts.SCREEN_ROWS - consts.FLAG_WIDTH - 1, consts.SCREEN_ROWS - 1):
-        for col in range(consts.SCREEN_COLS - consts.FLAG_HEIGHT, consts.SCREEN_COLS):
+    for row in range(consts.SCREEN_ROWS - consts.FLAG_HEIGHT - 1, consts.SCREEN_ROWS - 1):
+        for col in range(consts.SCREEN_COLS - consts.FLAG_WIDTH, consts.SCREEN_COLS):
             consts.FIELD[row][col] = consts.FLAG
 
 
 def put_solider():
-    for row in range(consts.SOLIDER_HEIGHT):
-        for col in range(consts.SOLIDER_WIDTH):
+    for row in range(consts.SOLIDER_WIDTH):
+        for col in range(consts.SOLIDER_HEIGHT):
             consts.FIELD[row][col] = consts.SOLIDER
 
 
 def put_mines():
     mines_count = 0
     while mines_count < 20:
-        row = random.randint(0, consts.SCREEN_ROWS - 1)
-        col = random.randint(0, consts.SCREEN_COLS - 3)
+        row = random.randint(0, consts.SCREEN_ROWS-1)
+        col = random.randint(0, consts.SCREEN_COLS)
         if consts.FIELD[row][col] == consts.EMPTY:
             mines_count += 1
             for i in range(consts.MINE_WIDTH):
