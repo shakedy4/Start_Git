@@ -1,5 +1,6 @@
 import pygame
 import consts
+import minefield
 
 soldier_rect = pygame.Rect(0, 0, consts.SOLDIER_WIDTH, consts.SOLDIER_HEIGHT)
 
@@ -22,7 +23,11 @@ def putting_soldier():
 
 # returning soldiers index
 def get_soldier_index():
-    return [soldier_rect.x, soldier_rect.y]
+    soldier_index = []
+    for i in range(consts.SOLDIER_HEIGHT):
+        for j in range(consts.SOLDIER_WIDTH):
+            soldier_index.append([(soldier_rect.x + j), soldier_rect.y + i])
+    return soldier_index
 
 
 # returning soldiers feet index
@@ -50,12 +55,10 @@ def solider_movement(keys_pressed, solider_rect):
 
 # checking if solider on a mine
 def is_on_mine():
-    left_leg_x = get_soldier_feet_index()[0]
-    left_leg_y = get_soldier_feet_index()[1]
-    right_leg_x = left_leg_x + consts.STEP
-    right_leg_y = left_leg_y
-    if consts.FIELD[left_leg_y][left_leg_x] == consts.MINE \
-            and consts.FIELD[right_leg_y][right_leg_x] == consts.MINE:
+    left_leg = get_soldier_feet_index()
+    right_leg = [left_leg[0] + consts.STEP, left_leg[1]]
+    if left_leg in minefield.mines_indexes() \
+            and right_leg in minefield.mines_indexes():
         return True
     else:
         return False
@@ -63,7 +66,7 @@ def is_on_mine():
 
 # checking if solider is on flag
 def is_on_flag():
-    pass
-
-
-
+    for index in range(len(get_soldier_index())):
+        if index in get_soldier_index():
+            return True
+    return False

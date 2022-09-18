@@ -55,6 +55,7 @@ def mines_indexes():
     return mines
 
 
+# returns a list of the flag's indexes
 def flag_indexes():
     flags = []
     for row in range(consts.SCREEN_ROWS):
