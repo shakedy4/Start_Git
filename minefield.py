@@ -19,8 +19,8 @@ def put_flag():
 
 
 def put_soldier():
-    for row in range(consts.SOLIDER_WIDTH -1):
-        for col in range(consts.SOLDIER_HEIGHT -1):
+    for row in range(consts.SOLDIER_HEIGHT):
+        for col in range(consts.SOLDIER_WIDTH):
             consts.FIELD[row][col] = consts.SOLDIER
 
 
@@ -29,7 +29,7 @@ def put_mines():
     mines_count = 0
     while mines_count < 20:
         row = random.randint(0, consts.SCREEN_ROWS-1)
-        col = random.randint(0, consts.SCREEN_COLS)
+        col = random.randint(0, consts.SCREEN_COLS-3)
         if consts.FIELD[row][col] == consts.EMPTY:
             mines_count += 1
             for i in range(consts.MINE_WIDTH):
@@ -43,3 +43,8 @@ def unite_screen():
     put_mines()
 
 
+unite_screen()
+for i in range(consts.SCREEN_ROWS):
+    for j in range(consts.SCREEN_COLS):
+        print(consts.FIELD[i][j], end=" ")
+    print(" ")
