@@ -1,7 +1,7 @@
 import pygame
 import consts
 
-soldier_rect = pygame.rect(0, 0, consts.SOLDIER_WIDTH, consts.SOLDIER_HEIGHT)
+soldier_rect = pygame.Rect(0, 0, consts.SOLDIER_WIDTH, consts.SOLDIER_HEIGHT)
 
 
 # drawing solider
@@ -22,14 +22,14 @@ def putting_soldier():
 
 # returning soldiers index
 def get_soldier_index():
-    return tuple(soldier_rect.x, soldier_rect.y)
+    return [soldier_rect.x, soldier_rect.y]
 
 
 # returning soldiers feet index
 def get_soldier_feet_index():
     feet_x = soldier_rect.x
     feet_y = soldier_rect.y - consts.STEP * (consts.SOLDIER_HEIGHT - 1)
-    return tuple(feet_x, feet_y)
+    return [feet_x, feet_y]
 
 
 # solider movement
@@ -41,10 +41,10 @@ def solider_movement(keys_pressed, solider_rect):
             and solider_rect + consts.STEP < consts.WINDOW_WIDTH:
         solider_rect.x += consts.STEP  # right
     if keys_pressed[pygame.K_UP] \
-            and solider_rect - consts.STEP < consts.WINDOW_HIGHT:
+            and solider_rect - consts.STEP < consts.WINDOW_HEIGHT:
         solider_rect.y -= consts.STEP  # up
     if keys_pressed[pygame.K_DOWN] \
-            and solider_rect + consts.STEP < consts.WINDOW_HIGHT:
+            and solider_rect + consts.STEP < consts.WINDOW_HEIGHT:
         solider_rect.y += consts.STEP  # down
 
 

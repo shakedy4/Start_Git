@@ -19,8 +19,8 @@ def put_flag():
 
 
 def put_soldier():
-    for row in range(consts.SOLIDER_WIDTH):
-        for col in range(consts.SOLDIER_HEIGHT):
+    for row in range(consts.SOLIDER_WIDTH -1):
+        for col in range(consts.SOLDIER_HEIGHT -1):
             consts.FIELD[row][col] = consts.SOLDIER
 
 
