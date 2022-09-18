@@ -1,7 +1,6 @@
 # screen related:
 SCREEN_ROWS = 25
 SCREEN_COLS = 50
-FIELD = []
 EMPTY = "EMPTY"
 MINE = "MINE"
 FLAG = "FLAG"
