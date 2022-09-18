@@ -2,6 +2,7 @@ import consts
 import random
 
 
+# creating an empty matrix
 def empty_screen():
     row_to_append = []
     for row in range(consts.SCREEN_ROWS):
@@ -23,6 +24,7 @@ def put_solider():
             consts.FIELD[row][col] = consts.SOLIDER
 
 
+# putting 20 mines on random places
 def put_mines():
     mines_count = 0
     while mines_count < 20:
@@ -41,8 +43,3 @@ def unite_screen():
     put_mines()
 
 
-unite_screen()
-for i in range(len(consts.FIELD)):
-    for j in range(len(consts.FIELD[i])):
-        print(consts.FIELD[i][j], end=" ")
-    print(" ")
