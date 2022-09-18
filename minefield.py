@@ -1,5 +1,7 @@
 import consts
 import random
+import pygame
+import screen
 
 field = []
 
@@ -44,8 +46,14 @@ def unite_screen():
     put_soldier()
     put_mines()
 
-
-# returns a list of the mines' indexes
+def Draws_mines():
+    pass
+def Background_deletion(image):
+    """
+    :param image:picture with a pink background
+    :return:Image with a transparent background
+    """
+    image.set_colorkey(consts.PINK)
 def mines_indexes():
     mines = []
     for row in range(consts.SCREEN_ROWS):
@@ -53,6 +61,51 @@ def mines_indexes():
             if field[row][col] == consts.MINE:
                 mines.append([row, col])
     return mines
+
+def enter():
+    pygame.init()
+    size = (consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT)
+    screen = pygame.display.set_mode(size)
+    pygame.display.set_caption("The Flag")
+    screen.fill(consts.SCREEN_COLOR_MINE)
+    player_image = pygame.image.load(consts.SOLDIER_MINE_PICTURE).convert()
+    Background_deletion(player_image)
+    screen.blit(player_image, [0, 0]) #לשנות למיקום החייל
+    mine_image = pygame.image.load(consts.MINE_PICTURE).convert()
+    Background_deletion(mine_image)
+    mines = mines_indexes()
+    for row in range(0, 60, 3):
+
+        screen.blit(mine_image, [mines[row][0] * consts.STEP, mines[row][1] * consts.STEP])
+        pygame.display.flip()
+
+    # for row in range(consts.SCREEN_ROWS):
+    #     for col in range(0, consts.SCREEN_COLS-2):
+    #         if field[row][col] == consts.MINE:
+    #             screen.blit(mine_image, (col * consts.STEP, row * consts.STEP))
+    #             pygame.display.flip()
+    pygame.display.flip()
+    finish = False
+    while not finish:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                finish = True
+
+    pygame.quit()
+
+
+empty_screen()
+put_mines()
+enter()
+
+# returns a list of the mines' indexes
+# def mines_indexes():
+#     mines = []
+#     for row in range(consts.SCREEN_ROWS):
+#         for col in range(consts.SCREEN_COLS):
+#             if field[row][col] == consts.MINE:
+#                 mines.append([row, col])
+#     return mines
 
 
 # returns a list of the flag's indexes

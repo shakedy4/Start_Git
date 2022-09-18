@@ -2,6 +2,8 @@ import pygame
 import consts
 import random
 
+size = (consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT)
+screen = pygame.display.set_mode(size)
 def Background_deletion(image):
     """
     :param image:picture with a pink background
@@ -23,25 +25,25 @@ def Random_grass():
         screen.blit(grass_image, [ran1, ran2])
         pygame.display.flip()
 
+def play():
+    pygame.init()
+    # size = (consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT)
+    # screen = pygame.display.set_mode(size)
+    pygame.display.set_caption("The Flag")
+    screen.fill(consts.SCREEN_COLOR)
+    Random_grass()
+    flag_image = pygame.image.load(consts.FLAG_PICTURE).convert()
+    Background_deletion(flag_image)
+    screen.blit(flag_image, [920, 420])
+    player_image = pygame.image.load(consts.SOLDIER_PICTURE).convert()
+    Background_deletion(player_image)
+    screen.blit(player_image, [0, 0])
+    pygame.display.flip()
+    finish = False
+    while not finish:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                finish = True
 
-pygame.init()
-size = (consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT)
-screen = pygame.display.set_mode(size)
-pygame.display.set_caption("The Flag")
-screen.fill(consts.SCREEN_COLOR)
-Random_grass()
+    pygame.quit()
 
-flag_image = pygame.image.load(consts.FLAG_PICTURE).convert()
-Background_deletion(flag_image)
-screen.blit(flag_image, [920, 420])
-player_image = pygame.image.load(consts.SOLDIER_PICTURE).convert()
-Background_deletion(player_image)
-screen.blit(player_image, [0, 0])
-pygame.display.flip()
-finish = False
-while not finish:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            finish = True
-
-pygame.quit()
