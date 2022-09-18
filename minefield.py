@@ -18,10 +18,10 @@ def put_flag():
             consts.FIELD[row][col] = consts.FLAG
 
 
-def put_solider():
+def put_soldier():
     for row in range(consts.SOLIDER_WIDTH):
-        for col in range(consts.SOLIDER_HEIGHT):
-            consts.FIELD[row][col] = consts.SOLIDER
+        for col in range(consts.SOLDIER_HEIGHT):
+            consts.FIELD[row][col] = consts.SOLDIER
 
 
 # putting 20 mines on random places
@@ -39,7 +39,7 @@ def put_mines():
 def unite_screen():
     empty_screen()
     put_flag()
-    put_solider()
+    put_soldier()
     put_mines()
 
 

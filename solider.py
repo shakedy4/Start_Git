@@ -1,11 +1,11 @@
 import pygame
 import consts
 
-solider_rect = pygame.rect(0, 0, consts.SOLIDER_WIDTH, consts.SOLIDER_HEIGHT)
+soldier_rect = pygame.rect(0, 0, consts.SOLDIER_WIDTH, consts.SOLDIER_HEIGHT)
 
 
 # drawing solider
-def drawing_solider():
+def drawing_soldier():
     """
     Yarin
     """
@@ -13,21 +13,23 @@ def drawing_solider():
 
 
 # putting solider on (0,0)
-def putting_solider():
+def putting_soldier():
     """
     Yarin
     """
     pass
 
 
-# returning solider's index
-def get_solider_index():
-    return set(solider_rect.x, solider_rect.y)
+# returning soldiers index
+def get_soldier_index():
+    return tuple(soldier_rect.x, soldier_rect.y)
 
 
-# returning solider's feet index
-def get_solider_feet_index():
-
+# returning soldiers feet index
+def get_soldier_feet_index():
+    feet_x = soldier_rect.x
+    feet_y = soldier_rect.y - consts.STEP * (consts.SOLDIER_HEIGHT - 1)
+    return tuple(feet_x, feet_y)
 
 
 # solider movement
