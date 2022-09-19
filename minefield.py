@@ -3,7 +3,6 @@ import random
 import pygame
 import screen2
 
-window = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
 pygame.display.set_caption("The Flag")
 
 field = []
@@ -72,7 +71,7 @@ def flag_indexes():
 def draws_mines():
     mines = mines_indexes()
     for row in range(0, 60, 3):
-        screen2.window.blit(consts.MINE_PIC, [mines[row][0] *39, mines[row][1] * 10])
+        consts.WINDOW.blit(consts.MINE_PIC, [mines[row][0] *39, mines[row][1] * 10])
         pygame.display.update()
 
 

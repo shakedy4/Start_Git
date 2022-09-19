@@ -2,12 +2,11 @@ import pygame
 import consts
 import random
 
-window = pygame.display.set_mode((consts.WINDOW_WIDTH, consts.WINDOW_HEIGHT))
 pygame.display.set_caption("The Flag!")
 
 
 def draw_window(color):
-    window.fill(color)
+    consts.WINDOW.fill(color)
     pygame.display.update()
 
 
@@ -25,12 +24,12 @@ def draw_grass():
 
 
 def draw_soldier():
-    window.blit(consts.SOLDIER_PIC, (0, 0))
+    consts.WINDOW.blit(consts.SOLDIER_PIC, (0, 0))
     pygame.display.update()
 
 
 def draw_night_soldier():
-    window.blit(consts.NIGHT_SOLDIER_PIC, (100, 0))
+    consts.WINDOW.blit(consts.NIGHT_SOLDIER_PIC, (100, 0))
     pygame.display.update()
 
 
