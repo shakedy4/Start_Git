@@ -23,16 +23,16 @@ def draw_grass():
         pygame.display.update()
 
 
-def draw_soldier():
-    consts.WINDOW.blit(consts.SOLDIER_PIC, (0, 0))
+def draw_soldier(x , y):
+    consts.WINDOW.blit(consts.SOLDIER_PIC, (x, y))
     pygame.display.update()
 
 def draw_flag():
     consts.WINDOW.blit(consts.FLAG_PIC, (920, 420))
     pygame.display.update()
 
-def draw_night_soldier():
-    consts.WINDOW.blit(consts.NIGHT_SOLDIER_PIC, (100, 0))
+def draw_night_soldier(x, y):
+    consts.WINDOW.blit(consts.NIGHT_SOLDIER_PIC, (x, y))
     pygame.display.update()
 
 
