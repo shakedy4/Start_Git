@@ -29,7 +29,7 @@ def draw_grass():
 
 def draw_mines(mines):
     for mine in range(0, len(mines), 3):
-        consts.WINDOW.blit(consts.MINE_PIC, (mines[mine][1] * consts.STEP, mines[mine][0] * consts.STEP))
+        consts.WINDOW.blit(consts.MINE_PIC, (mines[mine][0] * consts.STEP, mines[mine][1] * consts.STEP))
 
 
 def draw_flag():
@@ -65,18 +65,23 @@ def draw_message(message, font_size, color, location):
     font = pygame.font.SysFont(consts.FONT_NAME, font_size)
     text_img = font.render(message, True, color)
     consts.WINDOW.blit(text_img, location)
-    pygame.time.wait(1000)
+
 
 
 def draw_lose_message():
     draw_message(consts.LOSE_MESSAGE, consts.LOSE_FONT_SIZE, consts.WIN_COLOR, consts.LOSE_LOCATION)
+    pygame.display.update()
+
 
 
 def draw_win_message():
     draw_message(consts.WIN_MESSAGE, consts.WIN_FONT_SIZE, consts.WIN_COLOR, consts.WIN_LOCATION)
+    pygame.display.update()
 
 
 def draw_first_message():
     draw_message(consts.FIRST_MESSAGE, consts.FIRST_FONT_SIZE, (255, 255, 255), consts.FIRST_LOCATION)
-    # time.sleep(consts.SHOW_MESSAGE)
+    pygame.display.update()
+
+
 

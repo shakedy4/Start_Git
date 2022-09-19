@@ -25,6 +25,7 @@ NIGHT_SOLDIER_PIC = pygame.image.load(os.path.join('pictures', 'soldier_night.pn
 MINE_PIC = pygame.image.load(os.path.join('pictures', 'mine.png'))
 FLAG_PIC = pygame.image.load(os.path.join('pictures', 'flag.png'))
 WINDOW = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
+pygame.font.init()
 FONT_NAME = "Ariel"
 LOSE_MESSAGE = "You Lost!"
 LOSE_FONT_SIZE = int(0.15 * WINDOW_WIDTH)

@@ -13,13 +13,13 @@ def main():
     screen2.grass_indexes()
     screen2.draw_screen(soldier_rect)
 
-    # screen2.draw_first_message()
-
-    # clock = pygame.time.Clock()
+    screen2.draw_first_message()
+    pygame.time.wait(3000)
+    clock = pygame.time.Clock()
     run = True
 
     while run:
-        # clock.tick(consts.FPS)
+        clock.tick(consts.FPS)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
@@ -30,12 +30,14 @@ def main():
             keys_pressed = pygame.key.get_pressed()
             solider.solider_movement(keys_pressed, soldier_rect)
 
-        if solider.is_on_flag(soldier_rect):
-            print("on flag")
+        if solider.is_on_flag(soldier_rect, minefield.flag_indexes()):
+            screen2.draw_win_message()
+            pygame.time.wait(3000)
             run = False
 
-        if solider.is_on_mine(soldier_rect):
-            print("on mine")
+        if solider.is_on_mine(soldier_rect, minefield.mines_indexes()):
+            screen2.draw_lose_message()
+            pygame.time.wait(3000)
             run = False
 
         screen2.draw_screen(soldier_rect)

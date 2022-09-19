@@ -55,7 +55,7 @@ def mines_indexes():
     for row in range(consts.SCREEN_ROWS):
         for col in range(consts.SCREEN_COLS):
             if field[row][col] == consts.MINE:
-                mines.append([row, col])
+                mines.append([col, row])
     return mines
 
 
@@ -65,7 +65,7 @@ def flag_indexes():
     for row in range(consts.SCREEN_ROWS):
         for col in range(consts.SCREEN_COLS):
             if field[row][col] == consts.FLAG:
-                flags.append([row, col])
+                flags.append([col, row])
     return flags
 
 

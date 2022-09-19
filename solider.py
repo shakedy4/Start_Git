@@ -25,25 +25,24 @@ def get_soldier_index(soldier_rect):
 # returning soldiers feet index
 def get_soldier_feet_index(soldier_rect):
     feet_x = soldier_rect.x
-    feet_y = soldier_rect.y + consts.STEP * (consts.SOLDIER_HEIGHT - 1)
+    feet_y = soldier_rect.y + 1 * (consts.SOLDIER_HEIGHT - 1)
     return [feet_x, feet_y]
 
 
 # checking if solider on a mine
-def is_on_mine(soldier_rect):
+def is_on_mine(soldier_rect, mines):
     left_leg = get_soldier_feet_index(soldier_rect)
-    right_leg = [left_leg[0] + consts.STEP, left_leg[1]]
-    if left_leg in minefield.mines_indexes() \
-            and right_leg in minefield.mines_indexes():
+    right_leg = [left_leg[0] + 1, left_leg[1]]
+    if left_leg in mines and right_leg in mines:
         return True
-    else:
-        return False
+    return False
 
 
 # checking if solider is on flag
-def is_on_flag(soldier_rect):
-    for index in range(len(get_soldier_index(soldier_rect))):
-        if index in get_soldier_index(soldier_rect):
+def is_on_flag(soldier_rect, flags):
+    soldier_body = get_soldier_index(soldier_rect)
+    for index in range(len(soldier_body)):
+        if soldier_body[index] in flags:
             return True
     return False
 
@@ -62,4 +61,3 @@ def solider_movement(keys_pressed, soldier_rect):
     if keys_pressed[pygame.K_DOWN] \
             and soldier_rect.y + consts.STEP < consts.WINDOW_HEIGHT:
         soldier_rect.y += 1  # down
-
