@@ -7,6 +7,7 @@ pygame.display.set_caption("The Flag")
 
 field = []
 
+
 # creating an empty matrix
 def empty_screen():
     row_to_append = []
@@ -67,47 +68,11 @@ def flag_indexes():
                 flags.append([row, col])
     return flags
 
+# for i in range(consts.SCREEN_ROWS):
+#     for j in range(consts.SCREEN_COLS):
+#         print(field[i][j], end=" ")
+#     print(" ")
+#
+# print(mines_indexes())
+# print(flag_indexes())
 
-def draws_mines():
-    mines = mines_indexes()
-    for row in range(0, 60, 3):
-        consts.WINDOW.blit(consts.MINE_PIC, [mines[row][0] *39, mines[row][1] * 10])
-        pygame.display.update()
-
-def draw_tabel():
-    for row in range(25):
-        pygame.draw.lines(consts.WINDOW, consts.NIGHT_TABLE_BACKGROUND, True,[(0, 20*row), (1000, 20*row)])
-    for col in range(50):
-        pygame.draw.aalines(consts.WINDOW, consts.NIGHT_TABLE_BACKGROUND, True, [(20* col, 0), (20* col, 500)])
-    pygame.display.flip()
-
-empty_screen()
-put_mines()
-
-
-pygame.init()
-run = True
-clock = pygame.time.Clock()
-screen2.draw_window(consts.NIGHT_BACKGROUND)
-draw_tabel()
-draws_mines()
-while run:
-    # clock.tick(consts.FPS)
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            run = False
-    screen2.draw_night_soldier()
-    pygame.display.update()
-
-pygame.quit()
-
-
-
-unite_screen()
-for i in range(consts.SCREEN_ROWS):
-    for j in range(consts.SCREEN_COLS):
-        print(field[i][j], end=" ")
-    print(" ")
-
-print(mines_indexes())
-print(flag_indexes())

@@ -5,22 +5,6 @@ import minefield
 soldier_rect = pygame.Rect(0, 0, consts.SOLDIER_WIDTH, consts.SOLDIER_HEIGHT)
 
 
-# drawing solider
-def drawing_soldier():
-    """
-    Yarin
-    """
-    pass
-
-
-# putting solider on (0,0)
-def putting_soldier():
-    """
-    Yarin
-    """
-    pass
-
-
 # returning soldiers index
 def get_soldier_index():
     soldier_index = []
@@ -70,3 +54,4 @@ def is_on_flag():
         if index in get_soldier_index():
             return True
     return False
+
