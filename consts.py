@@ -39,4 +39,6 @@ WIN_LOCATION = \
 FIRST_MESSAGE = "Welcome to The Flag game. " \
                 "Have Fun!"
 FIRST_FONT_SIZE = int(15)
-FIRST_LOCATION = (45, 20)
+FIRST_LOCATION = (20, 20)
+SHOW_MINE = 1
+SHOW_MESSAGE = 3

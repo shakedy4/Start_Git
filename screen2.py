@@ -2,6 +2,7 @@ import pygame
 import consts
 import random
 import minefield
+import time
 
 
 # coloring window
@@ -66,6 +67,8 @@ def draw_message(message, font_size, color, location):
     font = pygame.font.SysFont(consts.FONT_NAME, font_size)
     text_img = font.render(message, True, color)
     consts.WINDOW.blit(text_img, location)
+    pygame.time.wait(1000)
+
 
 def draw_lose_message():
     draw_message(consts.LOSE_MESSAGE, consts.LOSE_FONT_SIZE, consts.WIN_COLOR, consts.LOSE_LOCATION)
@@ -74,4 +77,5 @@ def draw_lose_message():
 def draw_win_message():
     draw_message(consts.WIN_MESSAGE, consts.WIN_FONT_SIZE, consts.WIN_COLOR, consts.WIN_LOCATION)
 def draw_first_message():
-    draw_message(consts.FIRST_MESSAGE, consts.FIRST_FONT_SIZE, consts.WIN_COLOR, consts.FIRST_LOCATION)
+    draw_message(consts.FIRST_MESSAGE, consts.FIRST_FONT_SIZE, (255, 255, 255), consts.FIRST_LOCATION)
+    # time.sleep(consts.SHOW_MESSAGE)
