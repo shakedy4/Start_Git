@@ -3,31 +3,37 @@ import minefield
 import screen2
 import solider
 import consts
-import time
-
-pygame.display.set_caption("The Flag!")
-
-minefield.unite_screen()
 
 
-run = True
-pygame.init()
-screen2.draw_screen()
-screen2.draw_first_message()
-while run:
-    # clock.tick(consts.FPS)
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            run = False
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_RETURN:
-                screen2.draw_night_screen()
-                pygame.time.wait(1000)
-            else: pass
-    screen2.draw_screen()
-    pygame.display.update()
+def main():
+    pygame.display.set_caption("The Flag!")
 
-pygame.quit()
+    minefield.unite_screen()
+    soldier_rect = pygame.Rect(0, 0, consts.SOLDIER_WIDTH, consts.SOLDIER_HEIGHT)
+    screen2.grass_indexes()
+    screen2.draw_screen(soldier_rect)
+
+    # screen2.draw_first_message()
+
+    # clock = pygame.time.Clock()
+    run = True
+
+    while run:
+        # clock.tick(consts.FPS)
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+            elif event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_RETURN:
+                    screen2.draw_night_screen(soldier_rect)
+                    pygame.time.wait(1000)
+
+            keys_pressed = pygame.key.get_pressed()
+            solider.solider_movement(keys_pressed, soldier_rect)
+            screen2.draw_screen(soldier_rect)
+
+    pygame.quit()
 
 
-
+if __name__ == "__main__":
+    main()

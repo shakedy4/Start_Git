@@ -68,11 +68,15 @@ def flag_indexes():
                 flags.append([row, col])
     return flags
 
+
+
+
+
 # for i in range(consts.SCREEN_ROWS):
 #     for j in range(consts.SCREEN_COLS):
 #         print(field[i][j], end=" ")
 #     print(" ")
-#
+
 # print(mines_indexes())
 # print(flag_indexes())
 
