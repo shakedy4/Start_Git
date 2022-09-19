@@ -50,7 +50,7 @@ def draw_screen(soldier_rect):
     draw_grass()
     draw_flag()
     solider.draw_soldier(soldier_rect)
-    pygame.display.update()
+    # pygame.display.update()
 
 
 def draw_night_screen(soldier_rect):

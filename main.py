@@ -27,15 +27,22 @@ def main():
                 if event.key == pygame.K_RETURN:
                     screen2.draw_night_screen(soldier_rect)
                     pygame.time.wait(1000)
-
             keys_pressed = pygame.key.get_pressed()
             solider.solider_movement(keys_pressed, soldier_rect)
-            screen2.draw_screen(soldier_rect)
+
+        if solider.is_on_flag(soldier_rect):
+            print("on flag")
+            run = False
+
+        if solider.is_on_mine(soldier_rect):
+            print("on mine")
+            run = False
+
+        screen2.draw_screen(soldier_rect)
+        pygame.display.update()
 
     pygame.quit()
 
 
 if __name__ == "__main__":
     main()
-
-
