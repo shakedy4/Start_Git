@@ -79,3 +79,4 @@ def draw_win_message():
 def draw_first_message():
     draw_message(consts.FIRST_MESSAGE, consts.FIRST_FONT_SIZE, (255, 255, 255), consts.FIRST_LOCATION)
     # time.sleep(consts.SHOW_MESSAGE)
+

@@ -72,6 +72,7 @@ def flag_indexes():
 
 
 
+
 # for i in range(consts.SCREEN_ROWS):
 #     for j in range(consts.SCREEN_COLS):
 #         print(field[i][j], end=" ")

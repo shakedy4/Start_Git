@@ -62,3 +62,4 @@ def solider_movement(keys_pressed, soldier_rect):
     if keys_pressed[pygame.K_DOWN] \
             and soldier_rect.y + consts.STEP < consts.WINDOW_HEIGHT:
         soldier_rect.y += 1  # down
+
