@@ -14,7 +14,7 @@ def main():
     screen2.draw_screen(soldier_rect)
 
     screen2.draw_first_message()
-    pygame.time.wait(3000)
+    pygame.time.wait(2000)
     clock = pygame.time.Clock()
     run = True
 
