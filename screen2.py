@@ -62,4 +62,16 @@ def draw_night_screen():
     draw_night_tabel()
     draw_mines()
 
+def draw_message(message, font_size, color, location):
+    font = pygame.font.SysFont(consts.FONT_NAME, font_size)
+    text_img = font.render(message, True, color)
+    consts.WINDOW.blit(text_img, location)
 
+def draw_lose_message():
+    draw_message(consts.LOSE_MESSAGE, consts.LOSE_FONT_SIZE, consts.WIN_COLOR, consts.LOSE_LOCATION)
+
+
+def draw_win_message():
+    draw_message(consts.WIN_MESSAGE, consts.WIN_FONT_SIZE, consts.WIN_COLOR, consts.WIN_LOCATION)
+def draw_first_message():
+    draw_message(consts.FIRST_MESSAGE, consts.FIRST_FONT_SIZE, consts.WIN_COLOR, consts.FIRST_LOCATION)

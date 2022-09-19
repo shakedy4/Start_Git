@@ -25,4 +25,18 @@ NIGHT_SOLDIER_PIC = pygame.image.load(os.path.join('pictures', 'soldier_night.pn
 MINE_PIC = pygame.image.load(os.path.join('pictures', 'mine.png'))
 FLAG_PIC = pygame.image.load(os.path.join('pictures', 'flag.png'))
 WINDOW = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-
+FONT_NAME = "Calibri"
+LOSE_MESSAGE = "You Lost!"
+LOSE_FONT_SIZE = int(0.15 * WINDOW_WIDTH)
+LOSE_COLOR = (0,0,0)
+LOSE_LOCATION = \
+    (0.2 * WINDOW_WIDTH, WINDOW_HEIGHT / 2 - (LOSE_FONT_SIZE / 2))
+WIN_MESSAGE = "You Won!"
+WIN_FONT_SIZE = LOSE_FONT_SIZE
+WIN_COLOR = (89, 89, 89)
+WIN_LOCATION = \
+    (0.2 * WINDOW_WIDTH, WINDOW_HEIGHT / 2 - (WIN_FONT_SIZE / 2))
+FIRST_MESSAGE = "Welcome to The Flag game. " \
+                "Have Fun!"
+FIRST_FONT_SIZE = int(15)
+FIRST_LOCATION = (45, 20)

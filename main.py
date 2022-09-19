@@ -12,9 +12,9 @@ pygame.init()
 run = True
 clock = pygame.time.Clock()
 
-screen2.draw_night_screen()
-# screen2.draw_screen()
-
+# screen2.draw_night_screen()
+screen2.draw_screen()
+screen2.draw_first_message()
 while run:
     # clock.tick(consts.FPS)
     for event in pygame.event.get():
