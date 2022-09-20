@@ -69,7 +69,8 @@ def flag_indexes():
     return flags
 
 
-
+def get_field():
+    return field
 
 
 
