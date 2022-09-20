@@ -46,3 +46,4 @@ SHOW_MINE = 1
 SHOW_MESSAGE = 3
 NUMBERS_KEYS = [pygame.K_1, pygame.K_2, pygame.K_3, pygame.K_4,
                 pygame.K_5, pygame.K_6, pygame.K_7, pygame.K_8, pygame.K_9]
+

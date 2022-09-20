@@ -90,3 +90,4 @@ def get_field():
 
 # print(mines_indexes())
 # print(flag_indexes())
+
