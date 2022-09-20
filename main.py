@@ -37,15 +37,10 @@ def main():
             if event.type == pygame.KEYUP and \
                     event.key in numbers_keys:  # number 1-9:
                 press_time = time.time() - press_time
-                press_time = str(press_time)
-                press_time = press_time[:5]
-                press_time = float(press_time)
-                print(press_time)
+                press_time = float(str(press_time)[:5])
                 if press_time > 1:
-                    print("big")
                     database.num_press_more(keys_pressed, soldier_rect, minefield.get_field())
                 elif press_time <= 1:
-                    print("small")
                     database.num_press_less(keys_pressed, soldier_rect, minefield.get_field())
             keys_pressed = pygame.key.get_pressed()
             solider.solider_movement(keys_pressed, soldier_rect)  # soldier movement
