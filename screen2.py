@@ -4,8 +4,6 @@ import random
 import minefield
 import solider
 
-rnd_grass_indexes = []
-
 
 # coloring window
 def draw_window(color):
@@ -14,17 +12,19 @@ def draw_window(color):
 
 
 # draws 20 random grasses
-def grass_indexes():
-    for i in range(0, 20):
-        rnd_y = random.randint(1, consts.WINDOW_WIDTH - 40)
-        rnd_x = random.randint(0, consts.WINDOW_HEIGHT - 40)
-        rnd_grass_indexes.append([rnd_x, rnd_y])
+def grass_indexes(field):
+    grasses = []
+    for row in range(consts.SCREEN_ROWS):
+        for col in range(consts.SCREEN_COLS):
+            if field[row][col] == consts.GRASS:
+                grasses.append([col, row])
+    return grasses
 
 
-def draw_grass():
-    for grass in range(0, len(rnd_grass_indexes)):
+def draw_grass(grasses):
+    for grass in range(0, len(grasses)):
         consts.WINDOW.blit(consts.GRASS_PIC,
-                           (rnd_grass_indexes[grass][1], rnd_grass_indexes[grass][0]))
+                           (grasses[grass][0] * consts.STEP, grasses[grass][1] * consts.STEP))
 
 
 def draw_mines(mines):
@@ -47,7 +47,7 @@ def draw_night_tabel():
 
 def draw_screen(soldier_rect):
     draw_window(consts.GREEN_BACKGROUND)
-    draw_grass()
+    draw_grass(grass_indexes(minefield.get_field()))
     draw_flag()
     solider.draw_soldier(soldier_rect)
     # pygame.display.update()
@@ -67,11 +67,9 @@ def draw_message(message, font_size, color, location):
     consts.WINDOW.blit(text_img, location)
 
 
-
 def draw_lose_message():
     draw_message(consts.LOSE_MESSAGE, consts.LOSE_FONT_SIZE, consts.WIN_COLOR, consts.LOSE_LOCATION)
     pygame.display.update()
-
 
 
 def draw_win_message():
@@ -82,6 +80,4 @@ def draw_win_message():
 def draw_first_message():
     draw_message(consts.FIRST_MESSAGE, consts.FIRST_FONT_SIZE, (255, 255, 255), consts.FIRST_LOCATION)
     pygame.display.update()
-
-
 
