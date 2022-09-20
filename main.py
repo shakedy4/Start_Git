@@ -12,10 +12,8 @@ def main():
 
     minefield.unite_screen()
     soldier_rect = pygame.Rect(0, 0, consts.SOLDIER_WIDTH, consts.SOLDIER_HEIGHT)
-    screen2.grass_indexes()
+    screen2.grass_indexes(minefield.get_field())
     screen2.draw_screen(soldier_rect)
-    numbers_keys = [pygame.K_1, pygame.K_2, pygame.K_3, pygame.K_4,
-                    pygame.K_5, pygame.K_6, pygame.K_7, pygame.K_8, pygame.K_9]
 
     screen2.draw_first_message()
     pygame.time.wait(2000)
@@ -35,11 +33,11 @@ def main():
                     press_time = time.time()
                     keys_pressed = pygame.key.get_pressed()
             if event.type == pygame.KEYUP and \
-                    event.key in numbers_keys:  # number 1-9:
+                    event.key in consts.NUMBERS_KEYS:  # number 1-9:
                 press_time = time.time() - press_time
                 press_time = float(str(press_time)[:5])
                 if press_time > 1:
-                    database.num_press_more(keys_pressed, soldier_rect, minefield.get_field())
+                    database.num_press_more(keys_pressed)
                 elif press_time <= 1:
                     database.num_press_less(keys_pressed, soldier_rect, minefield.get_field())
             keys_pressed = pygame.key.get_pressed()

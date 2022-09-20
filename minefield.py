@@ -42,11 +42,22 @@ def put_mines():
                 field[row][col + i] = consts.MINE
 
 
+def put_grass_indexes():
+    grass_count = 0
+    while grass_count < 20:
+        row = random.randint(0, consts.SCREEN_ROWS - 2)
+        col = random.randint(0, consts.SCREEN_COLS - 2)
+        if field[row][col] != consts.GRASS:
+            grass_count += 1
+            field[row][col] = consts.GRASS
+
+
 def unite_screen():
     empty_screen()
     put_flag()
     put_soldier()
     put_mines()
+    put_grass_indexes()
 
 
 # returns a list of the mines' indexes
@@ -72,8 +83,6 @@ def flag_indexes():
 def get_field():
     return field
 
-
-
 # for i in range(consts.SCREEN_ROWS):
 #     for j in range(consts.SCREEN_COLS):
 #         print(field[i][j], end=" ")
@@ -81,4 +90,3 @@ def get_field():
 
 # print(mines_indexes())
 # print(flag_indexes())
-
