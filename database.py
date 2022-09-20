@@ -2,7 +2,7 @@ import pygame
 import minefield
 
 
-# import pandas
+# import pandas as pd
 
 # checking which number is pressed
 def num_press_less(keys_pressed, soldier_rect, field):

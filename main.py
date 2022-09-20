@@ -28,8 +28,12 @@ def main():
             if event.type == pygame.QUIT:  # quit
                 run = False
             elif event.type == pygame.KEYDOWN:
-                press_time = time.time()
-                keys_pressed = pygame.key.get_pressed()
+                if event.key == pygame.K_RETURN:  # enter
+                    screen2.draw_night_screen(soldier_rect)
+                    pygame.time.wait(1000)
+                else:
+                    press_time = time.time()
+                    keys_pressed = pygame.key.get_pressed()
             if event.type == pygame.KEYUP and \
                     event.key in numbers_keys:  # number 1-9:
                 press_time = time.time() - press_time
@@ -43,11 +47,8 @@ def main():
                 elif press_time <= 1:
                     print("small")
                     database.num_press_less(keys_pressed, soldier_rect, minefield.get_field())
-                if event.key == pygame.K_RETURN:  # enter
-                    screen2.draw_night_screen(soldier_rect)
-                    pygame.time.wait(1000)
-                # keys_pressed = pygame.key.get_pressed()
-                solider.solider_movement(keys_pressed, soldier_rect)
+            keys_pressed = pygame.key.get_pressed()
+            solider.solider_movement(keys_pressed, soldier_rect)  # soldier movement
 
         if solider.is_on_flag(soldier_rect, minefield.flag_indexes()):
             screen2.draw_win_message()
