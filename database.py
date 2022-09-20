@@ -1,43 +1,10 @@
+import pygame
 import pandas as pd
-# import numpy as pd
+import numpy as pd
 import csv
 import consts
-
-# games = pd.read_csv('games_theFlag.csv', usecols=[2, 9])
-
-
-# mylist = []
-#
-# def read_csv():
-#     with open('games_theFlag.csv', 'r') as game:
-#         myReader = csv.reader(game)
-#         # next(myReader)
-#         mylist = list(myReader)
-#
-#     for myItem in mylist:
-#         print(myItem)
-#
-# read_csv()
 
 myList = []
-with open('games_theFlag.csv', 'r') as myFile:
-    myDictReader = csv.DictReader(myFile)
-    myList = list(myDictReader)
-
-
-# def new_csv(game, ind):
-with open('models_new.csv', 'w') as newFile:
-    myDictWriter = csv.DictWriter(newFile, ['1' + str(consts.STEP), '2', '3', '4', '5', '6', '7', '8', '9'])
-    myDictWriter.writeheader()
-
-import pygame
-# import pandas as pd
-# import numpy as pd
-import csv
-import consts
-import minefield
-
-mylist = []
 
 
 def read_csv(file):
@@ -50,17 +17,9 @@ def read_csv(file):
         print(myItem)
 
 
-# read_csv()
-
-
-# with open('games_theFlag.csv', 'r') as myFile:
-#     myDictReader = csv.DictReader(myFile)
-#     myList = list(myDictReader)
-
-
+# writes to a file
 def new_csv(index, data):
     with open('game.csv', 'a') as newFile:
-        # myDictWriter = csv.DictWriter(newFile, [index * "\n", data])
         # create the csv writer
         writer = csv.writer(newFile)
         # write a row to the csv file
