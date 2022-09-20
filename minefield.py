@@ -47,7 +47,7 @@ def put_grass_indexes():
     while grass_count < 20:
         row = random.randint(0, consts.SCREEN_ROWS - 2)
         col = random.randint(0, consts.SCREEN_COLS - 2)
-        if field[row][col] != consts.GRASS:
+        if field[row][col] == consts.EMPTY:
             grass_count += 1
             field[row][col] = consts.GRASS
 
